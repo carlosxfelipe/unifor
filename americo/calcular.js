@@ -16,24 +16,24 @@ const calcular = (input) => {
     return;
   }
 
-  if (operador === "+") return console.log(somar(Number(a), Number(b)));
-  if (operador === "*") return console.log(multiplicar(Number(a), Number(b)));
-  if (operador === "/") return console.log(dividir(Number(a), Number(b)));
-  if (operador === "-") return console.log(subtrair(Number(a), Number(b)));
+  const operadoresValidos = ["+", "-", "*", "/"];
+  if (!operadoresValidos.includes(operador)) {
+    console.log(
+      "Operadores matemáticos válidos: \n+ Adição \n- Subtração \n* Multiplicação \n/ Divisão"
+    );
+    return;
+  }
 
-  readline.question(
-    "Digite a operação matemática com dois valores: ",
-    (input) => {
-      readline.close();
-      calcular(input.replace(",", ""));
-    }
-  );
+  if (operador === "+") console.log(somar(Number(a), Number(b)));
+  if (operador === "*") console.log(multiplicar(Number(a), Number(b)));
+  if (operador === "/") console.log(dividir(Number(a), Number(b)));
+  if (operador === "-") console.log(subtrair(Number(a), Number(b)));
 };
 
 readline.question(
   "Digite a operação matemática com dois valores: ",
   (input) => {
     readline.close();
-    calcular(input.replace(",", ""));
+    calcular(input);
   }
 );
