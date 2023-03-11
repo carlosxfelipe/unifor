@@ -11,10 +11,10 @@ public class Quicksort {
     System.out.print("Digite a quantidade de números: ");
     int quantidade = sc.nextInt();
 
-    obterNumero(numeros, quantidade, sc);
+    perguntar(numeros, quantidade, sc);
   }
 
-  public static void obterNumero(
+  public static void perguntar(
     List<Integer> numeros,
     int quantidade,
     Scanner sc
@@ -31,7 +31,7 @@ public class Quicksort {
       /* System.out.println(numeros.stream().sorted().toList()); */
       System.out.println(quicksort(numeros));
     } else {
-      obterNumero(numeros, quantidade, sc);
+      perguntar(numeros, quantidade, sc);
     }
   }
 

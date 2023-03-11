@@ -6,7 +6,7 @@ public class Contagem {
 
   static List<String> numeros = new ArrayList<>();
 
-  public static List<String> obterInteiros(List<String> numeros) {
+  public static List<String> filtrar(List<String> numeros) {
     List<String> inteiros = new ArrayList<>();
     for (String item : numeros) {
       int numero = Integer.parseInt(item);
@@ -18,7 +18,7 @@ public class Contagem {
     return inteiros;
   }
 
-  public static void obterNumero(int quantidade) {
+  public static void perguntar(int quantidade) {
     Scanner sc = new Scanner(System.in);
     System.out.print(
       "Digite o número (" + (numeros.size() + 1) + " de " + quantidade + "): "
@@ -28,9 +28,9 @@ public class Contagem {
 
     if (quantidade <= numeros.size()) {
       sc.close();
-      obterInteiros(numeros);
+      filtrar(numeros);
     } else {
-      obterNumero(quantidade);
+      perguntar(quantidade);
     }
   }
 
@@ -40,7 +40,7 @@ public class Contagem {
     String quantidadeString = sc.nextLine();
     try {
       int quantidade = Integer.parseInt(quantidadeString);
-      obterNumero(quantidade);
+      perguntar(quantidade);
     } catch (NumberFormatException e) {
       System.out.println("Você não digitou um número!");
     }

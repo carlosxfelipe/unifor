@@ -5,12 +5,12 @@ const readline = require("readline").createInterface({
 
 let numeros = [];
 
-const obterInteiros = (numeros) => {
+const filtrar = (numeros) => {
   const inteiros = numeros.filter((item) => item % 1 === 0 && item > 0);
   return console.log(inteiros.length, inteiros);
 };
 
-const obterNumero = (quantidade) => {
+const perguntar = (quantidade) => {
   readline.question(
     `Digite o número (${numeros.length + 1} de ${quantidade}): `,
     (numero) => {
@@ -18,9 +18,9 @@ const obterNumero = (quantidade) => {
 
       if (quantidade <= numeros.length) {
         readline.close();
-        obterInteiros(numeros);
+        filtrar(numeros);
       } else {
-        obterNumero(quantidade);
+        perguntar(quantidade);
       }
     }
   );
@@ -30,5 +30,5 @@ readline.question("Digite a quantidade de números: ", (quantidade) => {
   if (isNaN(quantidade)) {
     console.log("Você não digitou um número!");
     readline.close();
-  } else obterNumero(quantidade);
+  } else perguntar(quantidade);
 });

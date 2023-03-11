@@ -5,14 +5,14 @@ const readline = require("readline").createInterface({
 
 let numeros = [];
 
-const obterSoma = (numeros) => {
+const somar = (numeros) => {
   const soma = numeros.reduceRight(function (ultimoValor, penultimoValor) {
     return Number(ultimoValor) + Number(penultimoValor);
   });
   console.log(`O somatório é ${soma}`);
 };
 
-const obterNumero = (quantidade) => {
+const perguntar = (quantidade) => {
   readline.question(
     `Digite o número (${numeros.length + 1} de ${quantidade}): `,
     (numero) => {
@@ -20,9 +20,9 @@ const obterNumero = (quantidade) => {
 
       if (quantidade <= numeros.length) {
         readline.close();
-        obterSoma(numeros);
+        somar(numeros);
       } else {
-        obterNumero(quantidade);
+        perguntar(quantidade);
       }
     }
   );
@@ -32,5 +32,5 @@ readline.question("Digite a quantidade de números: ", (quantidade) => {
   if (isNaN(quantidade)) {
     console.log("Digite um número inteiro positivo!");
     readline.close();
-  } else obterNumero(quantidade);
+  } else perguntar(quantidade);
 });

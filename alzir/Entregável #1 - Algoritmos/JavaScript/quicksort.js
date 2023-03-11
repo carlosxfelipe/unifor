@@ -5,7 +5,7 @@ const readline = require("readline").createInterface({
 
 let numeros = [];
 
-const quicksort = (arr) => {
+const ordenar = (arr) => {
   if (arr.length <= 1) {
     return arr;
   }
@@ -18,10 +18,10 @@ const quicksort = (arr) => {
     arr[i] < pivo ? esquerda.push(arr[i]) : direita.push(arr[i]);
   }
 
-  return quicksort(esquerda).concat(pivo, quicksort(direita));
+  return ordenar(esquerda).concat(pivo, ordenar(direita));
 };
 
-const obterNumero = (quantidade) => {
+const perguntar = (quantidade) => {
   readline.question(
     `Digite o número (${numeros.length + 1} de ${quantidade}): `,
     (numero) => {
@@ -30,9 +30,9 @@ const obterNumero = (quantidade) => {
       if (quantidade <= numeros.length) {
         readline.close();
         /* console.log(numeros.sort()); */
-        console.log(quicksort(numeros));
+        console.log(ordenar(numeros));
       } else {
-        obterNumero(quantidade);
+        perguntar(quantidade);
       }
     }
   );
@@ -42,5 +42,5 @@ readline.question("Digite a quantidade de números: ", (quantidade) => {
   if (isNaN(quantidade)) {
     console.log("Digite um número!");
     readline.close();
-  } else obterNumero(quantidade);
+  } else perguntar(quantidade);
 });

@@ -6,7 +6,7 @@ public class Somatorio {
 
   static List<String> numeros = new ArrayList<String>();
 
-  static void obterSoma(List<String> numeros) {
+  static void somar(List<String> numeros) {
     int soma = 0;
     for (int i = numeros.size() - 1; i >= 0; i--) {
       soma += Integer.parseInt(numeros.get(i));
@@ -14,7 +14,7 @@ public class Somatorio {
     System.out.println("O somatório é " + soma);
   }
 
-  static void obterNumero(int quantidade) {
+  static void perguntar(int quantidade) {
     Scanner sc = new Scanner(System.in);
     System.out.print(
       "Digite o número (" + (numeros.size() + 1) + " de " + quantidade + "): "
@@ -24,9 +24,9 @@ public class Somatorio {
 
     if (quantidade <= numeros.size()) {
       sc.close();
-      obterSoma(numeros);
+      somar(numeros);
     } else {
-      obterNumero(quantidade);
+      perguntar(quantidade);
     }
   }
 
@@ -37,7 +37,7 @@ public class Somatorio {
 
     try {
       int quantidade = Integer.parseInt(quantidadeStr);
-      obterNumero(quantidade);
+      perguntar(quantidade);
     } catch (NumberFormatException e) {
       System.out.println("Digite um número inteiro positivo!");
       sc.close();
