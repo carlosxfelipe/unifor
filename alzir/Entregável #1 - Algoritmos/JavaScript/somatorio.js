@@ -32,5 +32,5 @@ readline.question("Digite a quantidade de números: ", (quantidade) => {
   if (isNaN(quantidade)) {
     console.log("Digite um número inteiro positivo!");
     readline.close();
-  } else perguntar(quantidade);
+  } else perguntar(quantidade.trim());
 });

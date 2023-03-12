@@ -4,7 +4,11 @@ const readline = require("readline").createInterface({
 });
 
 const hipotenusa = (a, b) => {
-  console.log(`A hipotenusa de ${a} e ${b} é ${(a ** 2 + b ** 2) ** 0.5}`);
+  const pitagoras = (a ** 2 + b ** 2) ** 0.5;
+
+  console.log(
+    `A hipotenusa de ${Number(a)} e ${Number(b)} é ${pitagoras.toFixed(1)}`
+  );
 };
 
 readline.question("Digite o valor de a: ", (a) => {

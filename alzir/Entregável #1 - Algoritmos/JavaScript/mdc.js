@@ -26,5 +26,10 @@ const mdc = (input) => {
 
 readline.question("Digite dois números inteiros: ", (input) => {
   readline.close();
-  mdc(input.replace(",", ""));
+  mdc(
+    input
+      .replace(",", "")
+      .replace(/\s{2,}/g, " ")
+      .trim()
+  );
 });

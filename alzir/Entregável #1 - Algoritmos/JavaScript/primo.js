@@ -4,11 +4,15 @@ const readline = require("readline").createInterface({
 });
 
 readline.question("Digite um número n: ", (num) => {
-  let divisores = 0;
+  if (num <= 0) {
+    console.log("Digite um número inteiro positivo!");
+  } else {
+    let divisores = 0;
 
-  for (let cont = 1; cont <= num; cont++) if (num % cont == 0) divisores++;
+    for (let cont = 1; cont <= num; cont++) if (num % cont == 0) divisores++;
 
-  if (divisores === 2) console.log(`${num} é número primo!`);
-  else console.log(`${num} não é número primo!`);
+    if (divisores === 2) console.log(`${Number(num)} é número primo!`);
+    else console.log(`${Number(num)} não é número primo!`);
+  }
   readline.close();
 });

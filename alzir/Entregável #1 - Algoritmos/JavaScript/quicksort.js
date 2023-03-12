@@ -25,7 +25,7 @@ const perguntar = (quantidade) => {
   readline.question(
     `Digite o número (${numeros.length + 1} de ${quantidade}): `,
     (numero) => {
-      numeros.push(numero);
+      numeros.push(Number(numero));
 
       if (quantidade <= numeros.length) {
         readline.close();
@@ -39,8 +39,8 @@ const perguntar = (quantidade) => {
 };
 
 readline.question("Digite a quantidade de números: ", (quantidade) => {
-  if (isNaN(quantidade)) {
-    console.log("Digite um número!");
+  if (isNaN(quantidade) || quantidade <= 0) {
+    console.log("Digite um número inteiro positivo!");
     readline.close();
-  } else perguntar(quantidade);
+  } else perguntar(quantidade.trim());
 });
