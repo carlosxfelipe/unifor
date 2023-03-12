@@ -3,30 +3,33 @@ import java.util.Scanner;
 
 public class App {
 
-  public static void main(String[] args) throws Exception {
-    ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+  public static void main(String[] args) {
+    ArrayList<Aluno> alunos = new ArrayList<>();
     alunos.add(new Aluno("Carlos Felipe", 12345));
     alunos.add(new Aluno("Caio Souza", 23456));
 
-    Scanner scanner = new Scanner(System.in);
-    String resposta;
+    Scanner sc = new Scanner(System.in);
 
-    do {
+    while (true) {
       System.out.println("Deseja adicionar um novo aluno? (s/n)");
-      resposta = scanner.nextLine();
+      String resposta = sc.nextLine().toLowerCase();
 
       if (resposta.equals("s")) {
-        System.out.println("Digite o nome do aluno:");
-        String nome = scanner.nextLine();
-        System.out.println("Digite a matrícula do aluno:");
-        int matricula = scanner.nextInt();
-        scanner.nextLine(); // quebra de linha
+        System.out.print("Digite o nome do aluno: ");
+        String nome = sc.nextLine();
+        System.out.print("Digite a matrícula do aluno: ");
+        int matricula = sc.nextInt();
+        sc.nextLine(); // quebra de linha
         alunos.add(new Aluno(nome, matricula));
+      } else {
+        break;
       }
-    } while (resposta.equals("s"));
-    scanner.close();
+    }
+
     for (Aluno aluno : alunos) {
       aluno.apresentar();
     }
+    Perguntas.main(args);
+    sc.close();
   }
 }
