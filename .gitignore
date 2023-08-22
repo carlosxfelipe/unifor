@@ -18,3 +18,10 @@ out/
 .idea/
 .gradle/
 build/
+
+# Arquivos gerados pelo JavaScript
+node_modules/
+/dist/
+
+# Arquivos gerados pelo TypeScript
+*.tsbuildinfo
