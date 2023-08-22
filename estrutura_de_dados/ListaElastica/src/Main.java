@@ -1,4 +1,19 @@
-public class ListaEstatica<T> implements Lista<T> {
+public class Main {
+
+  public static void main(String[] args) {
+    ListaEstatica<Integer> listaEstatica = new ListaEstatica<Integer>(10);
+    listaEstatica.inserirFinal(2);
+    listaEstatica.exibirLista();
+    listaEstatica.inserirFinal(5);
+    listaEstatica.exibirLista();
+    listaEstatica.inserirInicio(7);
+    listaEstatica.exibirLista();
+    listaEstatica.inserirPosicao(1, 10);
+    listaEstatica.exibirLista();
+  }
+}
+
+class ListaEstatica<T> implements Lista<T> {
 
   private T[] lista;
   private int quantidadeElementos;
@@ -9,14 +24,17 @@ public class ListaEstatica<T> implements Lista<T> {
     quantidadeElementos = 0;
   }
 
+  @Override
   public boolean estaCheia() {
     return quantidadeElementos == lista.length;
   }
 
+  @Override
   public boolean estaVazia() {
     return quantidadeElementos == 0;
   }
 
+  @Override
   public void exibirLista() {
     if (estaVazia()) {
       throw new ListaVaziaException("A lista está vazia!");
@@ -31,6 +49,7 @@ public class ListaEstatica<T> implements Lista<T> {
     }
   }
 
+  @Override
   public void inserirFinal(T valor) throws ListaCheiaException {
     if (estaCheia()) {
       throw new ListaCheiaException("A lista está cheia!");
@@ -40,6 +59,7 @@ public class ListaEstatica<T> implements Lista<T> {
     quantidadeElementos++;
   }
 
+  @Override
   public void inserirInicio(T valor) throws ListaCheiaException {
     if (estaCheia()) {
       throw new ListaCheiaException("A lista está cheia!");
@@ -52,6 +72,7 @@ public class ListaEstatica<T> implements Lista<T> {
     quantidadeElementos++;
   }
 
+  @Override
   public void inserirPosicao(int posicao, T valor) throws ListaCheiaException {
     if (estaCheia()) {
       throw new ListaCheiaException("A lista está cheia!");
@@ -70,31 +91,27 @@ public class ListaEstatica<T> implements Lista<T> {
     }
   }
 
+  @Override
   public int tamanho() {
-    return quantidadeElementos;
-  }
-
-  public static void main(String[] args) {
-    ListaEstatica<Integer> listaEstatica = new ListaEstatica<Integer>(10);
-    listaEstatica.inserirFinal(2);
-    listaEstatica.exibirLista();
-    listaEstatica.inserirFinal(5);
-    listaEstatica.exibirLista();
-    listaEstatica.inserirInicio(7);
-    listaEstatica.exibirLista();
-    listaEstatica.inserirPosicao(1, 10);
-    listaEstatica.exibirLista();
+    // TODO Auto-generated method stub
+    return 0;
   }
 }
 
 interface Lista<T> {
-  int tamanho();
-  boolean estaVazia();
-  boolean estaCheia();
-  void inserirInicio(T valor) throws ListaCheiaException;
-  void inserirFinal(T valor) throws ListaCheiaException;
-  void inserirPosicao(int posicao, T valor) throws ListaCheiaException;
-  void exibirLista();
+  public int tamanho();
+
+  public boolean estaVazia();
+
+  public boolean estaCheia();
+
+  public void inserirInicio(T valor) throws ListaCheiaException;
+
+  public void inserirFinal(T valor) throws ListaCheiaException;
+
+  public void inserirPosicao(int posicao, T valor) throws ListaCheiaException;
+
+  public void exibirLista();
 }
 
 class ListaVaziaException extends RuntimeException {
