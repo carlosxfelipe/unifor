@@ -3,3 +3,18 @@
 
 # Arquivos .jar
 *.jar
+
+# Arquivos gerados pelo Java
+*.class
+*.war
+*.ear
+/target/
+/build/
+
+# Arquivos gerados pelo Kotlin
+*.kotlin_built
+*.kotlin_module
+out/
+.idea/
+.gradle/
+build/
