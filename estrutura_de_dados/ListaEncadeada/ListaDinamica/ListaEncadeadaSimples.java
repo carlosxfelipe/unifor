@@ -50,6 +50,24 @@ public class ListaEncadeadaSimples<T> {
     tamanho++;
   }
 
+  public void removerInicio() {
+    if (tamanho == 0) throw new RuntimeException(
+      "A lista está vazia. Não é possível remover o início."
+    );
+
+    if (tamanho == 1) {
+      inicio = null;
+      fim = null;
+    } else {
+      // inicio = inicio.proximo;
+
+      No<T> noAuxiliar = inicio;
+      inicio = noAuxiliar.proximo;
+      noAuxiliar.proximo = null;
+    }
+    tamanho--;
+  }
+
   public void inserirFim(T valor) {
     No<T> novoNo = new No<T>(valor);
     if (inicio == null) {
@@ -59,6 +77,22 @@ public class ListaEncadeadaSimples<T> {
     }
     fim = novoNo;
     tamanho++;
+  }
+
+  public void removerFim() {
+    if (tamanho == 0) throw new RuntimeException(
+      "A lista está vazia. Não é possível remover o fim."
+    );
+
+    if (tamanho == 1) {
+      inicio = null;
+      fim = null;
+    } else {
+      No<T> noAnterior = retornaNo(tamanho - 2);
+      noAnterior.proximo = null;
+      fim = noAnterior;
+    }
+    tamanho--;
   }
 
   public void inserirPosicao(int posicao, T valor) {
@@ -72,6 +106,21 @@ public class ListaEncadeadaSimples<T> {
       novoNo.proximo = noAuxiliar.proximo;
       noAuxiliar.proximo = novoNo;
       tamanho++;
+    }
+  }
+
+  public void removerPosicao(int posicao) {
+    if (posicao < 0 || posicao >= tamanho) throw new RuntimeException(
+      "A posição " + posicao + " está fora dos limites da lista."
+    );
+    if (posicao == 0) {
+      removerInicio();
+    } else if (posicao == tamanho - 1) {
+      removerFim();
+    } else {
+      No<T> noAnterior = retornaNo(posicao - 1);
+      noAnterior.proximo = noAnterior.proximo.proximo;
+      tamanho--;
     }
   }
 

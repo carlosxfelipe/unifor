@@ -45,6 +45,20 @@ class ListaEncadeadaSimples<T> {
     tamanho++
   }
 
+  fun removerInicio() {
+    if (tamanho == 0) throw RuntimeException("A lista está vazia. Não é possível remover o início.")
+
+    if (tamanho == 1) {
+      inicio = null
+      fim = null
+    } else {
+      val noAuxiliar = inicio
+      inicio = noAuxiliar!!.proximo
+      noAuxiliar.proximo = null
+    }
+    tamanho--
+  }
+
   fun inserirFim(valor: T) {
     val novoNo = No(valor)
     if (inicio == null) {
@@ -54,6 +68,20 @@ class ListaEncadeadaSimples<T> {
     }
     fim = novoNo
     tamanho++
+  }
+
+  fun removerFim() {
+    if (tamanho == 0) throw RuntimeException("A lista está vazia. Não é possível remover o fim.")
+
+    if (tamanho == 1) {
+      inicio = null
+      fim = null
+    } else {
+      val noAnterior = retornaNo(tamanho - 2)
+      noAnterior.proximo = null
+      fim = noAnterior
+    }
+    tamanho--
   }
 
   fun inserirPosicao(posicao: Int, valor: T) {
@@ -67,6 +95,20 @@ class ListaEncadeadaSimples<T> {
       novoNo.proximo = noAuxiliar.proximo
       noAuxiliar.proximo = novoNo
       tamanho++
+    }
+  }
+
+  fun removerPosicao(posicao: Int) {
+    if (posicao < 0 || posicao >= tamanho)
+        throw RuntimeException("A posição $posicao está fora dos limites da lista.")
+    if (posicao == 0) {
+      removerInicio()
+    } else if (posicao == tamanho - 1) {
+      removerFim()
+    } else {
+      val noAnterior = retornaNo(posicao - 1)
+      noAnterior.proximo = noAnterior.proximo!!.proximo
+      tamanho--
     }
   }
 
@@ -96,8 +138,11 @@ fun main() {
   lista.inserirFim(2)
   lista.inserirFim(3)
   lista.inserirPosicao(1, 4)
+  lista.removerInicio()
+  lista.removerFim()
+  lista.removerPosicao(1)
 
-  println("Elemento na posição 2: ${lista.retornaValor(2)}")
+  // println("Elemento na posição 2: ${lista.retornaValor(2)}")
 
   lista.exibirLista()
 }
