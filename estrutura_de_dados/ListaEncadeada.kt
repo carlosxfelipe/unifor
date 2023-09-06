@@ -107,7 +107,9 @@ class ListaEncadeadaSimples<T> {
       removerFim()
     } else {
       val noAnterior = retornaNo(posicao - 1)
-      noAnterior.proximo = noAnterior.proximo!!.proximo
+      val noRemovido = noAnterior.proximo
+      noAnterior.proximo = noRemovido?.proximo
+      noRemovido?.proximo = null
       tamanho--
     }
   }

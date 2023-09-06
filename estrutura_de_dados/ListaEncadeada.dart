@@ -108,8 +108,10 @@ class ListaEncadeadaSimples<T> {
     } else if (posicao == tamanho - 1) {
       removerFim();
     } else {
-      var noAnterior = retornaNo(posicao - 1);
-      noAnterior.proximo = noAnterior.proximo?.proximo;
+      No<T> noAnterior = retornaNo(posicao - 1);
+      No<T>? noRemovido = noAnterior.proximo;
+      noAnterior.proximo = noRemovido?.proximo;
+      noRemovido?.proximo = null;
       tamanho--;
     }
   }

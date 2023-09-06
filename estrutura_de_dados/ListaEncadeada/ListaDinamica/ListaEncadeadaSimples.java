@@ -119,7 +119,9 @@ public class ListaEncadeadaSimples<T> {
       removerFim();
     } else {
       No<T> noAnterior = retornaNo(posicao - 1);
-      noAnterior.proximo = noAnterior.proximo.proximo;
+      No<T> noRemovido = noAnterior.proximo;
+      noAnterior.proximo = noRemovido.proximo;
+      noRemovido.proximo = null;
       tamanho--;
     }
   }
