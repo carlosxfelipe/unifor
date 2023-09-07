@@ -1,0 +1,14 @@
+package ListaDinamica;
+
+public class No<T> {
+
+  T valor;
+  No<T> proximo;
+  No<T> anterior;
+
+  public No(T valor) {
+    this.valor = valor;
+    proximo = null;
+    anterior = null;
+  }
+}
