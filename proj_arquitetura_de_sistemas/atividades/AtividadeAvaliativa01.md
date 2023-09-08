@@ -91,14 +91,16 @@ Carlos Felipe Araújo
 
 **Sistema de Controle Acadêmico**
 
-[Secretaria] --> [Sistema]: Solicita matrícula de alunos em turmas
-[Sistema] --> [Secretaria]: Exibe lista de turmas e alunos
-[Secretaria] --> [Sistema]: Seleciona turma e aluno
-[Sistema] --> [Turma]: Verificar Matrícula
-[Turma] --> [Aluno]: Verificar Matrícula
-[Aluno] --> [Turma]: Verificar Matrícula
-[Turma] --> [Sistema]: Matricular Aluno
-[Sistema] --> [Aluno]: Atualizar Matrícula
-[Sistema] --> [Mensagem de Confirmação]: Retorna resultado da operação
-[Secretaria] --> [Sistema]: Fecha interface
-[Mensagem de Confirmação] --> [Secretaria]: Exibe mensagem de confirmação
+| Origem          | Destino                  | Ação                                    |
+|-----------------|--------------------------|-----------------------------------------|
+| Secretaria      | Sistema                  | Solicita matrícula de alunos em turmas  |
+| Sistema         | Secretaria               | Exibe lista de turmas e alunos          |
+| Secretaria      | Sistema                  | Seleciona turma e aluno                 |
+| Sistema         | Turma                    | Verificar Matrícula                     |
+| Turma           | Aluno                    | Verificar Matrícula                     |
+| Aluno           | Turma                    | Verificar Matrícula                     |
+| Turma           | Sistema                  | Matricular Aluno                        |
+| Sistema         | Aluno                    | Atualizar Matrícula                     |
+| Sistema         | Mensagem de Confirmação  | Retorna resultado da operação           |
+| Secretaria      | Sistema                  | Fecha interface                         |
+| Mensagem de Confirmação | Secretaria       | Exibe mensagem de confirmação           |
