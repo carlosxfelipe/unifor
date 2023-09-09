@@ -9,4 +9,9 @@ class No<T> {
     this.valor = valor;
     proximo = null;
   }
+
+  @Override
+  public String toString() {
+    return valor.toString();
+  }
 }

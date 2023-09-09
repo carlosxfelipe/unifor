@@ -4,21 +4,20 @@ public class App {
 
   public static void main(String[] args) throws Exception {
     ListaDuplamenteEncadeada<Integer> lista = new ListaDuplamenteEncadeada<>(
-      68
+      100
     );
 
     lista.inserirInicio(0);
     lista.inserirInicio(1);
     lista.inserirInicio(2);
     lista.inserirFim(3);
-    lista.inserirPosicao(1, 9999);
-    lista.exibirLista();
+    lista.inserirPosicao(0, 9999);
+    lista.exibirLista(); // [9999, 2, 1, 0, 100, 3]
 
-    System.out.println("\n" + "valor: " + lista.retornarValor(2));
-
-    lista.removerInicio();
-    lista.removerFim();
-    lista.removerPosicao(0);
-    lista.exibirLista();
+    System.out.println("\n" + "valor: " + lista.retornarValor(2)); // valor: 1
+    lista.removerInicio(); // remove 9999
+    lista.removerFim(); // remove 3
+    lista.removerPosicao(0); // remove 2
+    lista.exibirLista(); // [1, 0, 100]
   }
 }

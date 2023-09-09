@@ -6,12 +6,14 @@ public class ListaEncadeadaSimples<T> {
   private No<T> fim;
   private int tamanho;
 
+  // O construtor padrão é usado quando você deseja criar uma lista vazia,
   public ListaEncadeadaSimples() {
     tamanho = 0;
     inicio = null;
     fim = null;
   }
 
+  // enquanto o segundo construtor é usado quando você deseja criar uma lista com um valor inicial.
   public ListaEncadeadaSimples(T valor) {
     No<T> novoNo = new No<T>(valor);
     inicio = novoNo;
@@ -40,11 +42,11 @@ public class ListaEncadeadaSimples<T> {
   public void inserirInicio(T valor) {
     No<T> novoNo = new No<T>(valor);
     if (inicio == null) {
-      inicio = novoNo;
-      fim = novoNo;
+      inicio = novoNo; // a
+      fim = novoNo; // a
     } else {
-      novoNo.proximo = inicio;
-      inicio = novoNo;
+      novoNo.proximo = inicio; // a
+      inicio = novoNo; // b
     }
     tamanho++;
   }
