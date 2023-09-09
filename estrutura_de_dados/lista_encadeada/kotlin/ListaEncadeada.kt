@@ -133,9 +133,47 @@ class No<T>(valor: T) {
   var proximo: No<T>? = null
 }
 
-fun main() {
+fun testarListaEncadeada() {
   val lista = ListaEncadeadaSimples<Any>()
 
+  val startTime = System.currentTimeMillis()
+
+  for (i in 1..100000) {
+      lista.inserirFim(i)
+  }
+
+  for (i in 1..100000) {
+      lista.removerFim()
+  }
+
+  val endTime = System.currentTimeMillis()
+
+  val tempoTotal = endTime - startTime
+  println("\nTempo total para lista encadeada: $tempoTotal ms")
+}
+
+fun testarListaMutavel() {
+  val lista = mutableListOf<Any>()
+
+  val startTime = System.currentTimeMillis()
+
+  for (i in 1..1000) {
+      lista.add(i)
+  }
+
+  for (i in 1..1000) {
+      lista.removeAt(lista.size - 1)
+  }
+
+  val endTime = System.currentTimeMillis()
+
+  val tempoTotal = endTime - startTime
+  println("\nTempo total para lista mutável: $tempoTotal ms")
+}
+
+fun main() {
+  val lista = ListaEncadeadaSimples<Any>()
+  
   lista.inserirInicio(1)
   lista.inserirFim(2)
   lista.inserirFim(3)
@@ -150,6 +188,7 @@ fun main() {
   
   println("\nLista após as remoções:")
   lista.exibirLista()
+  testarListaEncadeada()
 
   println("\n------------------\n")
 
@@ -169,4 +208,6 @@ fun main() {
 
   println("\nLista após as remoções:")
   println(lista2.toString())  
+  testarListaMutavel()
 }
+
