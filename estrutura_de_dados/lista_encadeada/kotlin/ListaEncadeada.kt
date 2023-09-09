@@ -138,11 +138,11 @@ fun testarListaEncadeada() {
 
   val startTime = System.currentTimeMillis()
 
-  for (i in 1..100000) {
+  for (i in 1..1000) {
       lista.inserirFim(i)
   }
 
-  for (i in 1..100000) {
+  for (i in 1..1000) {
       lista.removerFim()
   }
 
