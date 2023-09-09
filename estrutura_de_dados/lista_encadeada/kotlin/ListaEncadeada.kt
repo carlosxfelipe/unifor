@@ -134,17 +134,39 @@ class No<T>(valor: T) {
 }
 
 fun main() {
-  val lista = ListaEncadeadaSimples<Int>()
+  val lista = ListaEncadeadaSimples<Any>()
 
   lista.inserirInicio(1)
   lista.inserirFim(2)
   lista.inserirFim(3)
   lista.inserirPosicao(1, 4)
+  
+  println("Lista após as inserções:")
+  lista.exibirLista()
+
   lista.removerInicio()
   lista.removerFim()
   lista.removerPosicao(1)
-
-  // println("Elemento na posição 2: ${lista.retornaValor(2)}")
-
+  
+  println("\nLista após as remoções:")
   lista.exibirLista()
+
+  println("\n------------------\n")
+
+  val lista2 = mutableListOf<Any>()
+
+  lista2.add(1) // inserir no início
+  lista2.add(2) // inserir no fim
+  lista2.add(3) // inserir no fim
+  lista2.add(1, 4) // inserir na posição 1
+
+  println("Lista após as inserções:")
+  println(lista2.toString())
+
+  lista2.removeAt(0) // remover do início
+  lista2.removeAt(lista2.size - 1) // remover do fim
+  lista2.removeAt(1) // remover da posição 1
+
+  println("\nLista após as remoções:")
+  println(lista2.toString())  
 }
