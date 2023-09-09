@@ -151,21 +151,21 @@ class No<T>(var valor: T) {
 }
 
 fun main() {
-  val lista = ListaDuplamenteEncadeada<Int>()
-  
-  lista.inserirInicio(1)
-  lista.inserirFim(2)
-  lista.inserirFim(3)
-  lista.inserirPosicao(1, 4)
-  
-  println("Lista após as inserções:")
-  lista.exibirLista()
+    val lista = ListaDuplamenteEncadeada<Int>(68)
 
-  lista.removerInicio()
-  lista.removerFim()
-  lista.removerPosicao(1)
-  
-  println("\nLista após as remoções:")
-  lista.exibirLista()
+    lista.inserirInicio(0)
+    lista.inserirInicio(1)
+    lista.inserirInicio(2)
+    lista.inserirFim(3)
+    lista.inserirPosicao(1, 9999)
+    lista.exibirLista()
+
+    println("valor: ${lista.retornarValor(2)}")
+    
+    lista.removerInicio()
+    lista.removerFim()
+    lista.removerPosicao(0)
+    lista.exibirLista()
 }
+
 
