@@ -16,11 +16,15 @@ public class Main {
     System.out.println("Lista após as inserções:");
     lista.exibirLista(); // [1, @, 100, 2, 3]
 
+    System.out.println("\nLista após a inversão:");
+    lista.inverterLista();
+    lista.exibirLista(); // [3, 2, 100, @, 1]
+
     lista.removerInicio();
     lista.removerFim();
     lista.removerPosicao(1);
 
     System.out.println("\nLista após as remoções:");
-    lista.exibirLista(); // [@, 2]
+    lista.exibirLista(); // [2, @]
   }
 }

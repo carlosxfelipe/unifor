@@ -125,6 +125,28 @@ public class ListaEncadeadaSimples<T> {
     }
   }
 
+  public void inverterLista() {
+    if (tamanho <= 1) {
+      // Se a lista estiver vazia ou tiver apenas um elemento, não é necessário inverter.
+      return;
+    }
+
+    No<T> anterior = null;
+    No<T> atual = inicio;
+    No<T> proximo;
+
+    while (atual != null) {
+      proximo = atual.proximo;
+      atual.proximo = anterior;
+      anterior = atual;
+      atual = proximo;
+    }
+
+    // Agora que a lista foi invertida, atualizamos o início e o fim.
+    fim = inicio;
+    inicio = anterior;
+  }
+
   public void exibirLista() {
     System.out.print("[");
     No<T> noAuxiliar = inicio;

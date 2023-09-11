@@ -137,6 +137,27 @@ public class ListaEncadeadaSimples<T> {
     }
   }
 
+  // Inverte a ordem dos elementos na lista encadeada simples
+  public void inverterLista() {
+    if (inicio == null || inicio.proximo == null) {
+      // Se a lista estiver vazia ou tiver apenas um elemento, não é necessário inverter.
+      return;
+    }
+
+    No<T> anterior = null;
+    No<T> atual = inicio;
+    No<T> proximo = null;
+
+    while (atual != null) {
+      proximo = atual.proximo;
+      atual.proximo = anterior;
+      anterior = atual;
+      atual = proximo;
+    }
+
+    inicio = anterior; // O último elemento (anterior) se torna o novo início da lista.
+  }
+
   // Exibe os valores armazenados na lista encadeada
   public void exibirLista() {
     No<T> atual = inicio;
