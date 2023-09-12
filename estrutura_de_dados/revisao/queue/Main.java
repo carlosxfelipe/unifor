@@ -8,6 +8,7 @@ public class Main {
     fila.enfileirar(3);
 
     System.out.println("Elemento na frente: " + fila.verFrente()); // Elemento na frente: 1
+    // fila.inverterFila();
     fila.exibirFila(); // 1 <- 2 <- 3 <- null
 
     int frente = fila.desenfileirar();

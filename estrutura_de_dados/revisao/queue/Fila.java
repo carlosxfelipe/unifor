@@ -50,6 +50,28 @@ public class Fila<T> {
     return frente.valor;
   }
 
+  public void inverterFila() {
+    if (estaVazia()) {
+      return; // Se a fila estiver vazia, não há nada para inverter
+    }
+
+    No<T> anterior = null;
+    No<T> atual = frente;
+    No<T> proximo;
+
+    while (atual != null) {
+      proximo = atual.proximo;
+      atual.proximo = anterior;
+      anterior = atual;
+      atual = proximo;
+    }
+
+    // Inverter 'frente' e 'tras'
+    No<T> temp = frente;
+    frente = tras;
+    tras = temp;
+  }
+
   public void exibirFila() {
     No<T> atual = frente;
 

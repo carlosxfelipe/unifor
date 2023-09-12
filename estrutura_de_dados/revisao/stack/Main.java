@@ -7,6 +7,7 @@ public class Main {
     pilha.push(3);
 
     System.out.println("Elemento no topo: " + pilha.peek()); // Elemento no topo: 3
+    // pilha.inverterPilha();
     pilha.exibirPilha(); // 3 -> 2 -> 1 -> null
 
     int topo = pilha.pop();

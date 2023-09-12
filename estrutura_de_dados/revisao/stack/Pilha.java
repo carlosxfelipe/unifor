@@ -49,6 +49,25 @@ public class Pilha<T> {
     return altura;
   }
 
+  public void inverterPilha() {
+    if (estaVazia()) {
+      return;
+    }
+
+    No<T> prev = null;
+    No<T> atual = topo;
+    No<T> proximo;
+
+    while (atual != null) {
+      proximo = atual.proximo;
+      atual.proximo = prev;
+      prev = atual;
+      atual = proximo;
+    }
+
+    topo = prev; // O topo agora será o último elemento, invertendo a pilha
+  }
+
   public void exibirPilha() {
     No<T> atual = topo;
 
