@@ -70,20 +70,4 @@ public class Fila<T> {
       this.proximo = null;
     }
   }
-
-  public static void main(String[] args) {
-    Fila<Integer> fila = new Fila<>();
-    fila.enfileirar(1);
-    fila.enfileirar(2);
-    fila.enfileirar(3);
-
-    System.out.println("Elemento na frente: " + fila.verFrente());
-    fila.exibirFila();
-
-    int frente = fila.desenfileirar();
-    System.out.println("Elemento removido da frente: " + frente);
-
-    System.out.println("Elemento na frente após remoção: " + fila.verFrente());
-    fila.exibirFila();
-  }
 }

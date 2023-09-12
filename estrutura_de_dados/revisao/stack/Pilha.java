@@ -57,18 +57,4 @@ public class Pilha<T> {
       this.proximo = null;
     }
   }
-
-  public static void main(String[] args) {
-    Pilha<Integer> pilha = new Pilha<>();
-    pilha.push(1);
-    pilha.push(2);
-    pilha.push(3);
-
-    pilha.exibirPilha();
-
-    int topo = pilha.pop();
-    System.out.println("Elemento removido do topo: " + topo);
-
-    pilha.exibirPilha();
-  }
 }
