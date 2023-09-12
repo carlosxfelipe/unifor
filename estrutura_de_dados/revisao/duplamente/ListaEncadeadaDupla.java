@@ -5,7 +5,6 @@ public class ListaEncadeadaDupla<T> {
   private No<T> inicio;
   private No<T> fim;
 
-  // Construtores
   public ListaEncadeadaDupla() {
     this.inicio = null;
     this.fim = null;
@@ -37,7 +36,6 @@ public class ListaEncadeadaDupla<T> {
     return atual.valor;
   }
 
-  // Insere um novo nó no início da lista
   public void inserirInicio(T valor) {
     No<T> novoNo = new No<>(valor);
     novoNo.proximo = inicio;
@@ -51,7 +49,6 @@ public class ListaEncadeadaDupla<T> {
     }
   }
 
-  // Remove o nó no início da lista
   public void removerInicio() {
     if (inicio != null) {
       inicio = inicio.proximo;
@@ -63,7 +60,6 @@ public class ListaEncadeadaDupla<T> {
     }
   }
 
-  // Insere um novo nó no final da lista
   public void inserirFim(T valor) {
     No<T> novoNo = new No<>(valor);
     novoNo.anterior = fim;
@@ -77,7 +73,6 @@ public class ListaEncadeadaDupla<T> {
     }
   }
 
-  // Remove o nó no final da lista
   public void removerFim() {
     if (fim != null) {
       fim = fim.anterior;
@@ -89,7 +84,6 @@ public class ListaEncadeadaDupla<T> {
     }
   }
 
-  // Insere um novo nó em uma posição específica da lista
   public void inserirPosicao(int posicao, T valor) {
     if (posicao < 0) {
       throw new IndexOutOfBoundsException("Posição inválida");
@@ -122,7 +116,6 @@ public class ListaEncadeadaDupla<T> {
     }
   }
 
-  // Remove o nó na posição especificada da lista
   public void removerPosicao(int posicao) {
     if (posicao < 0 || inicio == null) {
       throw new IndexOutOfBoundsException("Posição inválida ou lista vazia");
@@ -154,7 +147,26 @@ public class ListaEncadeadaDupla<T> {
     }
   }
 
-  // Exibe os valores armazenados na lista encadeada
+  public void inverterLista() {
+    No<T> atual = inicio;
+    No<T> temp;
+
+    while (atual != null) {
+      // Troca os ponteiros 'anterior' e 'proximo' do nó atual
+      temp = atual.anterior;
+      atual.anterior = atual.proximo;
+      atual.proximo = temp;
+
+      // Move para o próximo nó
+      atual = atual.anterior;
+    }
+
+    // Troca os ponteiros de início e fim
+    temp = inicio;
+    inicio = fim;
+    fim = temp;
+  }
+
   public void exibirLista() {
     No<T> atual = inicio;
 

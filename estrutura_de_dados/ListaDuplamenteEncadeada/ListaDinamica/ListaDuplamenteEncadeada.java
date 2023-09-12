@@ -145,4 +145,26 @@ public class ListaDuplamenteEncadeada<T> {
       tamanho--;
     }
   }
+
+  public void inverterLista() {
+    if (tamanho <= 1) {
+      return;
+    }
+
+    No<T> noAtual = inicio;
+    No<T> temp = null;
+
+    while (noAtual != null) {
+      temp = noAtual.anterior;
+      noAtual.anterior = noAtual.proximo;
+      noAtual.proximo = temp;
+
+      // Mover para o próximo nó
+      noAtual = noAtual.anterior;
+    }
+
+    temp = inicio;
+    inicio = fim;
+    fim = temp;
+  }
 }

@@ -19,5 +19,9 @@ public class App {
     lista.removerFim(); // remove 3
     lista.removerPosicao(0); // remove 2
     lista.exibirLista(); // [1, 0, 100]
+
+    System.out.println("\nLista após a inversão:");
+    lista.inverterLista();
+    lista.exibirLista(); // [100, 0, 1]
   }
 }

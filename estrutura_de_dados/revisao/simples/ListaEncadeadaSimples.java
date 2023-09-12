@@ -2,7 +2,6 @@ public class ListaEncadeadaSimples<T> {
 
   private No<T> inicio;
 
-  // Construtores
   public ListaEncadeadaSimples() {
     this.inicio = null;
   }
@@ -31,21 +30,18 @@ public class ListaEncadeadaSimples<T> {
     return atual.valor;
   }
 
-  // Insere um novo nó no início da lista
   public void inserirInicio(T valor) {
     No<T> novoNo = new No<>(valor);
     novoNo.proximo = inicio;
     inicio = novoNo;
   }
 
-  // Remove o nó no início da lista
   public void removerInicio() {
     if (inicio != null) {
       inicio = inicio.proximo;
     }
   }
 
-  // Insere um novo nó no final da lista
   public void inserirFim(T valor) {
     No<T> novoNo = new No<>(valor);
 
@@ -62,7 +58,6 @@ public class ListaEncadeadaSimples<T> {
     atual.proximo = novoNo;
   }
 
-  // Remove o nó no final da lista
   public void removerFim() {
     if (inicio == null) {
       return;
@@ -81,7 +76,6 @@ public class ListaEncadeadaSimples<T> {
     atual.proximo = null;
   }
 
-  // Insere um novo nó em uma posição específica da lista
   public void inserirPosicao(int posicao, T valor) {
     if (posicao < 0) {
       throw new IndexOutOfBoundsException("Posição inválida");
@@ -110,7 +104,6 @@ public class ListaEncadeadaSimples<T> {
     }
   }
 
-  // Remove o nó na posição especificada da lista
   public void removerPosicao(int posicao) {
     if (posicao < 0 || inicio == null) {
       throw new IndexOutOfBoundsException("Posição inválida ou lista vazia");
@@ -137,10 +130,8 @@ public class ListaEncadeadaSimples<T> {
     }
   }
 
-  // Inverte a ordem dos elementos na lista encadeada simples
   public void inverterLista() {
     if (inicio == null || inicio.proximo == null) {
-      // Se a lista estiver vazia ou tiver apenas um elemento, não é necessário inverter.
       return;
     }
 
@@ -158,7 +149,6 @@ public class ListaEncadeadaSimples<T> {
     inicio = anterior; // O último elemento (anterior) se torna o novo início da lista.
   }
 
-  // Exibe os valores armazenados na lista encadeada
   public void exibirLista() {
     No<T> atual = inicio;
 
