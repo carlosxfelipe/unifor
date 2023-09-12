@@ -37,6 +37,18 @@ public class Pilha<T> {
     return topo.valor;
   }
 
+  public int altura() {
+    int altura = 0;
+    No<T> atual = topo;
+
+    while (atual != null) {
+      altura++;
+      atual = atual.proximo;
+    }
+
+    return altura;
+  }
+
   public void exibirPilha() {
     No<T> atual = topo;
 

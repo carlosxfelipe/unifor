@@ -14,5 +14,7 @@ public class Main {
 
     System.out.println("Elemento no topo após remoção: " + pilha.peek()); // Elemento no topo após remoção: 2
     pilha.exibirPilha(); // 2 -> 1 -> null
+
+    System.out.println("Altura da pilha: " + pilha.altura()); // Altura da pilha: 2
   }
 }
