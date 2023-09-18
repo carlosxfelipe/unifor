@@ -11,17 +11,17 @@ export default class StackLinkedList<T> {
     this.top = newNode;
   }
 
-  pop(): T | undefined {
+  pop(): T | null {
     if (this.isEmpty()) {
-      return undefined;
+      return null;
     }
     const poppedValue = this.top!.value;
     this.top = this.top!.next;
     return poppedValue;
   }
 
-  peek(): T | undefined {
-    return this.top?.value;
+  peek(): T | null {
+    return this.top?.value ?? null;
   }
 
   isEmpty(): boolean {
@@ -43,13 +43,13 @@ export default class StackLinkedList<T> {
   }
 
   toArray(): T[] {
-    const result: T[] = [];
+    const newArray: T[] = [];
     let current = this.top;
     while (current !== null) {
-      result.push(current.value);
+      newArray.push(current.value);
       current = current.next;
     }
-    return result;
+    return newArray;
   }
 
   toString(): string {
