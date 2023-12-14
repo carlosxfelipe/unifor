@@ -124,6 +124,7 @@ class BinarySearchTree {
     return node;
   }
 
+  // Encontra o nó mínimo na subárvore direita
   findMinChildren(node) {
     let currentNode = node;
     while (currentNode.left !== null) {
@@ -189,7 +190,7 @@ const Crypt = {
   },
 };
 
-function readFileAndProcess() {
+function main() {
   try {
     const fileContent = fs.readFileSync("arquivo.txt", "utf8");
 
@@ -216,4 +217,4 @@ function readFileAndProcess() {
   }
 }
 
-readFileAndProcess();
+main();
